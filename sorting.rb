@@ -18,17 +18,17 @@ end
 def insertion(arr)
   puts arr.inspect
   for i in (0..arr.length-1) do
+    lowest = arr[i]
+    index = i
     for j in (i..arr.length-1) do
-      lowest = arr[0]
-      index = 0
       if arr[j] < lowest
         lowest = arr[j]
         index = j
       end
-      arr[i], arr[index] = arr[index], arr[i]
     end
+    arr[i], arr[index] = arr[index], arr[i]
   end
   puts arr.inspect
 end
 
-insertion(arr)
+# insertion(arr)
