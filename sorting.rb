@@ -15,7 +15,7 @@ end
 
 # bubble(arr)
 
-def insertion(arr)
+def selection(arr)
   puts arr.inspect
   for i in (0..arr.length-1) do
     lowest = arr[i]
@@ -31,4 +31,21 @@ def insertion(arr)
   puts arr.inspect
 end
 
-# insertion(arr)
+# selection(arr)
+
+def insertion(arr)
+  puts arr.inspect
+  for i in (1..arr.length-1) do
+    for j in (0..i) do
+      if arr[j] > arr[i]
+        index = j
+        item = arr.delete_at(i)
+        arr.insert(index, item)
+      end
+    end
+    puts arr.inspect
+  end
+  puts arr.inspect
+end
+
+insertion(arr)
