@@ -1,5 +1,5 @@
 #bubble
-arr = [8,5,0,3,4,2,1,9,7,6]
+arr = [8,5,0,3,4,2,1,9,7]
 
 def bubble(arr)
   puts arr.inspect
@@ -48,4 +48,25 @@ def insertion(arr)
   puts arr.inspect
 end
 
-insertion(arr)
+# insertion(arr)
+
+def merge(left, right)
+  sorted = []
+  until left.empty? || right.empty?
+    if left[0] <= right[0]
+      sorted << left.shift
+    else
+      sorted << right.shift
+    end
+  end
+  sorted.concat(left).concat(right)
+end
+
+def merge_sort(arr)
+  return arr if arr.size < 2
+  left = arr[0, arr.length/2]
+  right = arr[arr.length/2, arr.length]
+  merge(merge_sort(left), merge_sort(right))
+end
+
+puts merge_sort(arr).inspect
